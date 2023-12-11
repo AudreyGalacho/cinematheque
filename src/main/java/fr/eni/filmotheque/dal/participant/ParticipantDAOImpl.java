@@ -1,6 +1,9 @@
 package fr.eni.filmotheque.dal.participant;
 
 import fr.eni.filmotheque.bo.Participant;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,6 +14,8 @@ import java.util.*;
 
 @Repository
 public class ParticipantDAOImpl implements ParticipantDAO{
+
+    Logger logger = LoggerFactory.getLogger(ParticipantDAOImpl.class);
 
 
     //    JDBC CONNEXION *************************************************
@@ -30,11 +35,10 @@ public class ParticipantDAOImpl implements ParticipantDAO{
                 "JOIN participants p ON p.id =  a.id_participant " +
                 "WHERE a.id_film = ?";
         try {
-            // Utilisation du RowMapper personnalisé
             listeActeurs = jdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Participant.class),
                     idFilm ); // PARAMETRE
         } catch (Exception e) {
-            System.out.println("Erreur DAO!! getListActeursByFilm : ");
+            logger.warn("Erreur DAO!! getListActeursByFilm : ");
             e.printStackTrace();
         }
         return listeActeurs;
@@ -46,9 +50,9 @@ public class ParticipantDAOImpl implements ParticipantDAO{
         // requete
         String sql = "SELECT id, prenom , nom FROM participants ";
         try {
-            listeParticipant = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Participant.class));
+            listeParticipant = jdbcTemplate.query(sql, new BeanPropertyRowMapper (Participant.class));
         } catch (Exception e) {
-            System.out.println("Erreur !!!:getParticipantsList() ");
+            logger.warn("Erreur dal getParticipantsList() sql error");
             e.printStackTrace();
         }
         return listeParticipant;
@@ -67,7 +71,7 @@ public class ParticipantDAOImpl implements ParticipantDAO{
                             rs.getString(3)),
                     id)));
         } catch (Exception e) {
-            System.out.println("Erreur !!!: ");
+            logger.warn("Erreur dal getParticipantById() sql error");
             e.printStackTrace();
         }
 
