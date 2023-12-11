@@ -60,8 +60,7 @@ public class FilmController {
     }
 
     /**
-     * Methode qui affiche la liste des films (du Mook)
-     *
+     * Methode qui affiche la liste des films
      * @param model
      * @return
      */
@@ -73,8 +72,6 @@ public class FilmController {
         //mapping avec la vue
         model.addAttribute("films", films);
         logger.info("Demande de la liste des films");
-
-        // affichage de la vue concernée
         return "films";
     }
 
