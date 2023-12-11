@@ -5,6 +5,9 @@ import fr.eni.filmotheque.bo.Genre;
 import fr.eni.filmotheque.bo.Participant;
 import fr.eni.filmotheque.dal.genre.GenresDAO;
 import fr.eni.filmotheque.dal.participant.ParticipantDAO;
+import fr.eni.filmotheque.dal.participant.ParticipantDAOImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,6 +21,8 @@ import java.util.*;
 
 @Repository
 public class FilmDAOImpl implements FilmDAO {
+    // LOGGER trace use
+    Logger logger = LoggerFactory.getLogger(FilmDAOImpl.class);
 
     private GenresDAO genresDAO;
     private ParticipantDAO participantDAO;
@@ -120,6 +125,7 @@ public class FilmDAOImpl implements FilmDAO {
             System.out.println("Erreur DAO!!!findAllFilms(): ");
             e.printStackTrace();
         }
+        logger.info("Liste de film bien récupérée");
         return listFilms;
     }
 
@@ -146,7 +152,6 @@ public class FilmDAOImpl implements FilmDAO {
                     new FilmRowMapper(),
                     idFilm)));
         } catch (Exception e) {
-            System.out.println("Erreur !!!: ");
             System.out.println("Pas de Film d'id :" + idFilm + "/n");
             e.printStackTrace();
         }
@@ -180,15 +185,14 @@ public class FilmDAOImpl implements FilmDAO {
         film.setId(keyHolder.getKey().intValue());
         //ajout des acteurs
         addActeurs(film);
+        logger.info("film bien enregisté");
 
     }
 
 
     public void addActeurs(Film film) {
-        System.out.println("ADDING ACTEURS");
         List<Participant> acteurs = film.getActeurs();
-        String sql = "INSERT INTO acteur (id_film , id_participant) VALUES (?, ?)";
-        System.out.println(film.getActeurs());
+        String sql = "INSERT INTO acteurs (id_film , id_participant) VALUES (?, ?)";
 
         jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
             @Override
@@ -201,6 +205,7 @@ public class FilmDAOImpl implements FilmDAO {
                 return acteurs.size();
             }
         });
+        logger.info("acteur(s) bien enregisté(s)");
 
     }
 

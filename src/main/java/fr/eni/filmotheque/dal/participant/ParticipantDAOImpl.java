@@ -88,9 +88,9 @@ public class ParticipantDAOImpl implements ParticipantDAO{
                             rs.getString(2),
                             rs.getString(3)),
                     id)));
-            // Si récup ok
-            Participant participantById = participantByIdOpt.get();
-            return participantById;
+//            // Si récup ok
+//            Participant participantById = participantByIdOpt.get();
+//            return participantById;
 
         } catch (Exception e) {
             logger.warn("Erreur dal getParticipantById() sql error");
