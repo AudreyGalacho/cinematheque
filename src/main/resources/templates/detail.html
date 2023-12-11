@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="https://www.thymeleaf.org/">
+
+<div th:replace="fragments/head :: head"></div>
+
+<body>
+<!-- Insertion du fragment header -->
+<div th:replace="fragments/header :: header"></div>
+
+<div class="cardFilm self">
+    <h2 th:text="'Détail du Film : ' + ${film.titre}"></h2>
+    <p th:text="'Genre : ' +${film.genre.libelle}"></p>
+    <p th:text="'Année : ' +${film.annee}"></p>
+    <p th:text="'Durée : ' +${film.duree} + ' minutes'"></p>
+    <p th:text="'Synopsis : ' + ${film.synopsis}"></p>
+    <p th:text="'Acteurs : ' + ${film.acteursString}"></p>
+    <img th:src="@{'https://picsum.photos/1500/1500?random=' + ${film.id}}" alt="Film Image">
+</div>
+</body>
+</html>

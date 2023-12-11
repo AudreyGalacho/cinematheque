@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/html" xmlns:th="https://www.thymeleaf.org/">
+
+<div th:replace="fragments/head :: head"></div>
+
+<body>
+<!-- Insertion du fragment header -->
+<div th:replace="fragments/header :: header"></div>
+
+<h2 th:text="#{add.film}" >Ajouter un film</h2>
+
+<form class="addfilmform" method="post" th:action="@{/ajoutfilm}" th:object="${film}">
+    <label for="titreInput" th:text="#{film.titre}"></label>
+    <div th:if="${#fields.hasErrors('titre')}" class="alert alert-danger">
+        <div th:each="erreur: ${#fields.errors('titre')}" th:text="${erreur}"></div>
+    </div>
+    <input id="titreInput" th:field="*{titre}" type="text"/>
+
+    <div class="form-cols">
+        <div class="full-width">
+            <label for="dureeInput" th:text="#{film.duree}">Durée (minutes): </label>
+            <div th:if="${#fields.hasErrors('duree')}" class="alert alert-danger">
+                <div th:each="erreur: ${#fields.errors('duree')}" th:text="${erreur}"></div>
+            </div>
+            <input id="dureeInput" th:field="*{duree}" type="number"/>
+        </div>
+        <div class="full-width">
+            <label for="anneeInput" th:text="#{film.annee}">Année : </label>
+            <div th:if="${#fields.hasErrors('annee')}" class="alert alert-danger">
+                <div th:each="erreur: ${#fields.errors('annee')}" th:text="${erreur}"></div>
+            </div>
+            <!--        <input type="number" th:field="*{annee}" id="anneeInput" />-->
+            <select id="anneeInput" th:field="*{annee}">
+                <option th:each="year : ${years}" th:text="${year}" th:value="${year}"></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-cols">
+        <!--        <label for="participantsInput">Participants :</label>-->
+        <!--        <input type="text" th:field="${film.partcipants}" id="participantsInput" />-->
+
+        <div class="full-width">
+            <label for="realisateursInput"th:text="#{film.realisateur}">Réalisateurs :</label>
+            <div th:if="${#fields.hasErrors('realisateur')}" class="alert alert-danger">
+                <div th:each="erreur: ${#fields.errors('realisateur')}" th:text="${erreur}"></div>
+            </div>
+            <!--                <input type="text" th:field="${film.realisateurs}" id="realisateursInput" />-->
+            <select id="realisateursInput" th:field="*{realisateur}">
+                <option th:each="p : ${@participantServiceImpl.getListeParticipants()}"
+                        th:text="${p.prenom + ' ' + p.nom}"
+                        th:value="${p.id}">
+                </option>
+            </select>
+        </div>
+        <div class="full-width">
+            <label for="acteursInput" th:text="#{film.acteurs}">Acteurs :</label>
+            <div th:each="p : ${@participantServiceImpl.getListeParticipants()}">
+                <label>
+                    <input type="checkbox" id="acteursInput"  th:field="*{acteurs}" th:value="${p.id}" />
+                    <span th:text="${p.prenom + ' ' + p.nom}"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <label for="synopsisInput">Synopsis : </label>
+    <div th:if="${#fields.hasErrors('synopsis')}" class="alert alert-danger">
+        <div th:each="erreur: ${#fields.errors('synopsis')}" th:text="${erreur}"></div>
+    </div>
+    <textarea id="synopsisInput" th:field="*{synopsis}"></textarea>
+
+    <label for="genreInput">Genre : </label>
+    <div th:if="${#fields.hasErrors('genre')}" class="alert alert-danger">
+        <div th:each="erreur: ${#fields.errors('genre')}" th:text="${erreur}"></div>
+    </div>
+    <select id="genreInput" th:field="*{genre}">
+        <option th:each="g : ${@genreServiceImpl.getListeGenres()}"
+                th:text="${g.libelle}"
+                th:value="${g.id}">
+        </option>
+    </select>
+
+    <button type="submit">Ajouter</button>
+</form>
+</body>
+</html>

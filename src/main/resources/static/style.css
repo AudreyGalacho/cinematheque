@@ -1,0 +1,168 @@
+@media screen and (max-width: 568px) {
+    .listFilms {
+        flex-direction: column;
+        margin: auto;
+        align-content: center;
+    }
+
+    .cardFilm.multi {
+        width: 90%;
+        margin: 5%;
+    }
+
+    .form-cols {
+        flex-direction: column;
+    }
+    .form-cols>div.full-width { /*écrase la width du form*/
+        width: 100%;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #ebebeb;
+    font-size: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+div.error {
+    padding: 1% 3%;
+    height: 80vh;
+    background-image: url("images/denise-jans-tV80374iytg-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.error-text {
+    text-align: center;
+    margin-top: 10%;
+    background-color: rgba(233, 233, 233, 0.82);
+    border-radius: 10px;
+}
+
+.error a {
+    color: #222A4A;
+    font-size: 1.5em;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 10%;
+    box-shadow: 0 1px 23px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 18px;
+}
+
+h2 {
+    margin-top: 5%;
+    text-align: center;
+}
+
+.listFilms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1%;
+    width: 100%;
+}
+
+.cardFilm {
+    padding: 2%;
+    width: 40%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 1%;
+    min-width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardFilm a {
+    margin-top: 2%;
+    padding: 10px 20px;
+    background-color: #222A4A;
+    color: #E9E9E9;
+    border-radius: 5px;
+}
+
+.cardFilm.self {
+    margin: auto;
+    width: 80%;
+}
+
+.cardFilm.self p {
+    margin-bottom: 2em;
+}
+
+/***********************************FORM***********************************/
+.addfilmform {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.addfilmform input[type="text"],
+.addfilmform input[type="number"],
+.addfilmform select,
+.addfilmform textarea {
+    width: 100%;
+    padding: 2%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+}
+
+.addfilmform button {
+    margin-top: 5%;
+    background-color: #383A3E;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.addfilmform button:hover {
+    background-color: #D0D0D0;
+    color: #2A2828;
+    border: 1px solid #b6b9b9;
+}
+div.form-cols {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.form-cols>div { /*Les div dirrectement sous le form*/
+    width: 48%;
+}
+/********************************** ALERT FORM */
+.alert {
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
