@@ -19,7 +19,7 @@
         <p th:text="'Année : ' +${film.annee}"></p>
         <p th:text="'Réalisateur : ' +${film.realisateursString}"></p>
         <a th:href="@{'/films/detail?id=' + ${film.id}}">Detail</a>
-        <img th:src="@{'https://picsum.photos/1500/1500?random=' + ${film.id}}" alt="Film Image">
+        <img th:src="@{'https://picsum.photos/500/500?random=' + ${film.id}}" alt="Film Image">
     </div>
 </div>
 </body>
