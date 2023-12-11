@@ -89,7 +89,7 @@ public class FilmController {
         if (filmOptional.isEmpty()) {
             // affichage de la vue concernée
             logger.error("PAS de film à l'id demander " +idFilm);
-            return "error_sql";
+            return "error";
         } else {
             Film film = filmOptional.get();
             // mapping avec la vue

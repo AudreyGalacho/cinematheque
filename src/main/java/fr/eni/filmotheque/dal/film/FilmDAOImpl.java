@@ -152,7 +152,7 @@ public class FilmDAOImpl implements FilmDAO {
                     new FilmRowMapper(),
                     idFilm)));
         } catch (Exception e) {
-            System.out.println("Pas de Film d'id :" + idFilm + "/n");
+            logger.error("Pas de Film d'id :" + idFilm);
             e.printStackTrace();
         }
         return filmById;
