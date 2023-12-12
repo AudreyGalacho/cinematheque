@@ -24,7 +24,7 @@ public class StringToActeursConverter implements Converter<String, Participant> 
         Integer idConvert = Integer.parseInt(id);
 
         Optional<Participant> participantOptional = Optional.ofNullable(participantService.findParticipantById(idConvert));
-        // affichage de la vue concernée
+
         Participant participant = participantOptional.get();
         return participant;
     }
