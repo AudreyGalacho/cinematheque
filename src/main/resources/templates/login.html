@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org/"
+      lang="fr">
+
+<div th:replace="~{fragments/head :: head}"></div>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form th:action="@{/login}" method="post">
+        <label for="username">username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+</body>
+
+</html>
