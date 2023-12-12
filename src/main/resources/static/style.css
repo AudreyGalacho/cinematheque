@@ -172,3 +172,21 @@ div.form-cols {
     background-color: #f8d7da;
     border-color: #f5c6cb;
 }
+/**************** LOGIN *******************************************/
+
+.login-container {
+    padding: 2%;
+    width: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: auto;
+    min-width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.login-container>form{
+    display: flex;
+    flex-direction: column;
+}
+
