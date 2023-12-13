@@ -1,4 +1,4 @@
-package fr.eni.filmotheque.bll;
+package fr.eni.filmotheque.bll.participant;
 
 import fr.eni.filmotheque.bo.Participant;
 import fr.eni.filmotheque.dal.participant.ParticipantDAO;

@@ -1,4 +1,4 @@
-package fr.eni.filmotheque.bll;
+package fr.eni.filmotheque.bll.genre;
 
 import fr.eni.filmotheque.bo.Genre;
 import fr.eni.filmotheque.dal.genre.GenresDAO;
@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Service

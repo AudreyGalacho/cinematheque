@@ -1,4 +1,4 @@
-package fr.eni.filmotheque.bll;
+package fr.eni.filmotheque.bll.film;
 
 import java.util.List;
 import java.util.Optional;

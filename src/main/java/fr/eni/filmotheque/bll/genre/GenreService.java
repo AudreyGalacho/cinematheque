@@ -1,4 +1,4 @@
-package fr.eni.filmotheque.bll;
+package fr.eni.filmotheque.bll.genre;
 
 import fr.eni.filmotheque.bo.Genre;
 
