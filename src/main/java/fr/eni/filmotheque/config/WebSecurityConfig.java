@@ -23,7 +23,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/accueil", "/films", "/style.css").permitAll()
+                        .requestMatchers("/", "/accueil", "/films", "/films/detail", "/style.css").permitAll()
                         //permition avec role
                         .requestMatchers("/ajoutfilm").hasRole("ADMIN")
                         .anyRequest().authenticated())
@@ -33,16 +33,18 @@ public class WebSecurityConfig {
                         .permitAll()
                 )
                 .logout((logout) -> logout
-                        .permitAll()
-                        .logoutSuccessUrl("/"));
+                        .logoutSuccessUrl("/films")
+                        .permitAll());
 
         logger.info("-------------SecurityFilterChain ok");
         return http.build();
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         //(bdd signature encodage)
-         return  PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        //return  PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        return new BCryptPasswordEncoder();
         //return NoOpPasswordEncoder.getInstance();
     }
 
