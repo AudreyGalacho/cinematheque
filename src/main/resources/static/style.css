@@ -175,17 +175,22 @@ div.form-cols {
 /**************** LOGIN *******************************************/
 
 .login-container {
-    padding: 2%;
-    width: 50%;
+    padding: 10%;
+    min-width: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin: auto;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
     min-width: 30vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
 .login-container>form{
+    margin: 10%;
+    min-width: 25%;
     display: flex;
     flex-direction: column;
 }
