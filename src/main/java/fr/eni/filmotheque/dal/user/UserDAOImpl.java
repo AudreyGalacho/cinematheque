@@ -2,7 +2,6 @@ package fr.eni.filmotheque.dal.user;
 
 import fr.eni.filmotheque.bo.Participant;
 import fr.eni.filmotheque.bo.User;
-import fr.eni.filmotheque.dal.participant.ParticipantDAOImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
