@@ -1,19 +1,17 @@
 package fr.eni.filmotheque.controllers;
 
-import fr.eni.filmotheque.bll.FilmService;
-import fr.eni.filmotheque.bll.GenreService;
+import fr.eni.filmotheque.bll.film.FilmService;
+import fr.eni.filmotheque.bll.genre.GenreService;
 import fr.eni.filmotheque.bo.Film;
-
 import jakarta.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
-
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -75,7 +73,6 @@ public class FilmController {
         return "films";
     }
 
-
     /**
      * Methode qui affiche le detail d'un film en fonction de son id
      * @param model
@@ -105,6 +102,7 @@ public class FilmController {
      * @param model
      * @return
      */
+    @Secured("ROLE_ADMIN")
     @GetMapping(path = "/ajoutfilm")
     public String addFilm(Model model) {
         model.addAttribute("film", new Film());
