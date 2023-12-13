@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="https://www.thymeleaf.org/">
 
-<div th:replace="fragments/head :: head"></div>
+<div th:replace="~{fragments/head :: head}"></div>
 
 <body>
 <!-- Insertion du fragment header -->
-<div th:replace="fragments/header :: header"></div>
+<div th:replace="~{fragments/header :: header}"></div>
 
 <div class="cardFilm self">
     <h2 th:text="'Détail du Film : ' + ${film.titre}"></h2>

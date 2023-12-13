@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="https://www.thymeleaf.org/">
 
-<div th:replace="fragments/head :: head"></div>
+<div th:replace="~{fragments/head :: head}"></div>
 
 
 <body>
 <!-- Insertion du fragment header -->
-<div th:replace="fragments/header :: header"></div>
+<div th:replace="~{fragments/header :: header}"></div>
 
 <h2>Les films</h2>
 <!--Cartes des different films-->
