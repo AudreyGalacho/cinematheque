@@ -1,9 +1,15 @@
 <!-- fragments/header.html -->
 <div class="header" th:fragment="header">
     <h1>Filmothèque</h1>
-    <a href="/films">Films </a>
-    <div sec:authorize="isAuthenticated()">
-        <a href="/ajoutfilm">Ajouter Film </a>
+    <a th:href="@{/films}">Films </a>
+    <div sec:authorize="isAuthenticated() and hasRole('ROLE_ADMIN')">
+        <a th:href="@{/ajoutfilm}">Ajouter Film</a>
     </div>
-    <a href="/login">Se connecter</a>
+    <div sec:authorize="isAuthenticated()">
+        <a th:href="@{/logout}">Se déconecter</a>
+    </div>
+    <div sec:authorize="not isAuthenticated()">
+        <a th:href="@{/login}">Se connecter</a>
+    </div>
+
 </div>
