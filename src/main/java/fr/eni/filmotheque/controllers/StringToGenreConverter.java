@@ -1,6 +1,6 @@
 package fr.eni.filmotheque.controllers;
 
-import fr.eni.filmotheque.bll.GenreService;
+import fr.eni.filmotheque.bll.genre.GenreService;
 import fr.eni.filmotheque.bo.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;

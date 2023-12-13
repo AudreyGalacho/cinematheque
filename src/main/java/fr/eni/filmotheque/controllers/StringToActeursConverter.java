@@ -2,7 +2,7 @@ package fr.eni.filmotheque.controllers;
 
 
 
-import fr.eni.filmotheque.bll.ParticipantService;
+import fr.eni.filmotheque.bll.participant.ParticipantService;
 import fr.eni.filmotheque.bo.Participant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
