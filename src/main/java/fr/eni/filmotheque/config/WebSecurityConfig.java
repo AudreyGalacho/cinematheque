@@ -5,10 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -26,6 +24,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/", "/accueil", "/films", "/films/detail","/register", "/style.css").permitAll()
                         //permition avec role
                         .requestMatchers("/ajoutfilm").hasRole("ADMIN")
+                        .requestMatchers("/add-avis").hasRole("USER")
                         .anyRequest().authenticated())
                 // défini la page de connection et déconnection comme accessible a tous
                 .formLogin((form) -> form
@@ -34,9 +33,9 @@ public class WebSecurityConfig {
                 )
                 .logout((logout) -> logout
                         .logoutSuccessUrl("/films")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
                         .permitAll());
-
-        logger.info("-------------SecurityFilterChain ok");
         return http.build();
     }
 
