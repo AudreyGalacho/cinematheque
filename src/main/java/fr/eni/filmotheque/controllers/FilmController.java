@@ -19,7 +19,6 @@ import java.util.stream.IntStream;
 
 
 @Controller
-@SessionAttributes("genres")
 public class FilmController {
 
     // Déclaration du logger
@@ -69,7 +68,6 @@ public class FilmController {
 
         //mapping avec la vue
         model.addAttribute("films", films);
-        logger.info("Demande de la liste des films");
         return "films";
     }
 
@@ -81,7 +79,6 @@ public class FilmController {
      */
     @RequestMapping(path = "/films/detail", method = RequestMethod.GET)
     public String displayFilmDetail(Model model, @RequestParam(name = "id") int idFilm) {  //injection de Model
-        logger.info("Demande d'affichage d'un film d'id :" + idFilm);
         Optional<Film> filmOptional = filmService.findFilmById(idFilm);
         if (filmOptional.isEmpty()) {
             // affichage de la vue concernée
@@ -121,7 +118,6 @@ public class FilmController {
             return "filmFormAdd";
         }
         filmService.addFilm(film);
-        logger.info("Film correctement inséré");
         return "redirect:/films";
     }
 }
