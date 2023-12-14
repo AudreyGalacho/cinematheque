@@ -62,7 +62,7 @@ public class UserDAOImpl implements UserDAO {
                     username)));
 
         } catch (Exception e) {
-            logger.warn("Erreur dal getUserByUsername sql error");
+            logger.warn("-------------Erreur dal getUserByUsername sql error");
             e.printStackTrace();
         }
 
@@ -70,5 +70,22 @@ public class UserDAOImpl implements UserDAO {
         logger.info("-------------getUserByUsername DAO OK " + userByUsernameOpt.get());
         return userByUsernameOpt.get();
     }
+    public void insertUser(User user) {
+        String sql = "INSERT INTO membres (prenom, nom, email, password, admin) VALUES (?, ?, ?, ?, ?)";
+
+        try {
+            jdbcTemplate.update(sql,
+                    user.getPrenom(),
+                    user.getNom(),
+                    user.getUsername(),
+                    user.getPassword(),
+                    user.getAdmin());
+            logger.info("-------------insertUser DAO OK");
+        } catch (Exception e) {
+            logger.warn("---------------Erreur dal insertUser sql error");
+            e.printStackTrace();
+        }
+    }
+
 
 }
