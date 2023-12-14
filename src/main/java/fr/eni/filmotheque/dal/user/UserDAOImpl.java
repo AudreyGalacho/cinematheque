@@ -67,7 +67,6 @@ public class UserDAOImpl implements UserDAO {
         }
 
         // TODO faire remonter l'optional (retourner un Optional<User>)
-        logger.info("-------------getUserByUsername DAO OK " + userByUsernameOpt.get());
         return userByUsernameOpt.get();
     }
 
@@ -94,7 +93,6 @@ public class UserDAOImpl implements UserDAO {
         }
 
         // TODO faire remonter l'optional (retourner un Optional<User>)
-        logger.info("-------------getUserByUsername DAO OK " + userByUsernameOpt.get());
         return userByUsernameOpt.get();
     }
 
@@ -109,7 +107,6 @@ public class UserDAOImpl implements UserDAO {
                     user.getUsername(),
                     user.getPassword(),
                     user.getAdmin());
-            logger.info("-------------insertUser DAO OK");
         } catch (Exception e) {
             logger.warn("---------------Erreur dal insertUser sql error");
             e.printStackTrace();

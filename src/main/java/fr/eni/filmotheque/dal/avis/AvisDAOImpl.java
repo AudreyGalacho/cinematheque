@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -75,7 +76,7 @@ public class AvisDAOImpl implements AvisDAO {
                 "WHERE id_film = ? ";
 
         try {
-            listAvisByFilm =jdbcTemplate.query(
+            listAvisByFilm = jdbcTemplate.query(
                     sql,
                     new AvisRowMapper(),
                     idFilm);
@@ -83,9 +84,8 @@ public class AvisDAOImpl implements AvisDAO {
             logger.warn("-------------Erreur dal getAvisByFilm sql error");
             e.printStackTrace();
         }
-
+        logger.info("------------DAO AVIS Récupératiojn des avis");
         // TODO faire remonter l'optional (retourner un Optional<Avis>)
-        logger.info("-------------getAvisByFilm DAO OK " + listAvisByFilm);
         return listAvisByFilm;
     }
 
@@ -102,6 +102,7 @@ public class AvisDAOImpl implements AvisDAO {
             logger.warn("Erreur dal getAvisListFilm sql error");
             e.printStackTrace();
         }
+        logger.info(listAvis.toString());
         return listAvis;
     }
 

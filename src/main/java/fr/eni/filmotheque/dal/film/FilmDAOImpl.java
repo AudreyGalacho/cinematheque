@@ -125,7 +125,6 @@ public class FilmDAOImpl implements FilmDAO {
             System.out.println("Erreur DAO!!!findAllFilms(): ");
             e.printStackTrace();
         }
-        logger.info("Liste de film bien récupérée");
         return listFilms;
     }
 
@@ -162,8 +161,6 @@ public class FilmDAOImpl implements FilmDAO {
     @Override
     public void addFilm(Film film) {
         // TODO verifier que le titre + année pas dejà present en base
-        System.out.println("ADDING FILM");
-        System.out.println(film);
 
         String sql = "INSERT INTO films (titre, annee, duree, synopsis, id_realisateur, id_genre)" +
                 "VALUES (?, ?, ?, ?, ?, ?)";
