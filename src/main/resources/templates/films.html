@@ -5,13 +5,11 @@
 
 
 <body>
-<!-- Insertion du fragment header -->
+
 <div th:replace="~{fragments/header :: header}"></div>
 
 <h2>Les films</h2>
-<!--Cartes des different films-->
-<!-- pour chaque film afficher le genre anne titre réalisateur et un bouton detail pour la vue détaillée-->
-<!--Boucle pour afficher les films récupéré du controller-->
+
 <div class="listFilms">
     <div class="cardFilm multi" th:each="film : ${films}">
         <h3 th:text="${film.titre}"> un titre </h3>

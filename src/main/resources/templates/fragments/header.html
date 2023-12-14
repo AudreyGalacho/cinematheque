@@ -1,4 +1,3 @@
-<!-- fragments/header.html -->
 <div class="header" th:fragment="header">
     <h1>Filmothèque</h1>
     <a th:href="@{/films}">Films </a>
@@ -10,8 +9,9 @@
             <input type="submit" value="Se déconecter"/>
         </form>
     </div>
-    <div sec:authorize="not isAuthenticated()">
+    <div class="form-cols" sec:authorize="not isAuthenticated()">
         <a th:href="@{/login}">Se connecter</a>
+        <a th:href="@{/register}">Inscription</a>
     </div>
 
 </div>
