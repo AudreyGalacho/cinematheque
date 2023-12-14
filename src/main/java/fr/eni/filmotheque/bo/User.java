@@ -30,8 +30,6 @@ public class User {
                 ", prenom='" + prenom + '\'' +
                 ", nom='" + nom + '\'' +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", admin=" + admin +
                 '}';
     }
 
