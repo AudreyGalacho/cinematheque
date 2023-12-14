@@ -21,6 +21,8 @@ public class User {
     @Column("admin")
     private Boolean admin;
 
+
+
     @Override
     public String toString() {
         return "User{" +
@@ -35,9 +37,13 @@ public class User {
 
     public User() {
     }
+    public User(Long id, String prenom, String nom) {
+        this.id = id;
+        this.prenom = prenom;
+        this.nom = nom;
+    }
 
     public User(Long id, String prenom, String nom, String username, String password, Boolean admin) {
-        super();
         this.id = id;
         this.prenom = prenom;
         this.nom = nom;
