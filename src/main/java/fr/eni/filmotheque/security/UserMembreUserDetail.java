@@ -17,20 +17,17 @@ public class UserMembreUserDetail  implements UserDetails {
     private User user;
 
     public UserMembreUserDetail(User user) {
-        logger.info("----------construct UserMembreUserDetail");
         this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        logger.info("-------------UserDetails MyUserPrincipal");
 
         List<GrantedAuthority> authorities  = new ArrayList<>();
         if (user.getAdmin()){
             authorities .add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         }
         authorities .add(new SimpleGrantedAuthority("ROLE_USER"));
-        // Retourne la liste des rôles ou autorités de l'utilisateur.
         logger.info(authorities .toString());
         return authorities ;
     }
