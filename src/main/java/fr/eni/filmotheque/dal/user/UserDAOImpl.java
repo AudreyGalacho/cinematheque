@@ -70,6 +70,35 @@ public class UserDAOImpl implements UserDAO {
         logger.info("-------------getUserByUsername DAO OK " + userByUsernameOpt.get());
         return userByUsernameOpt.get();
     }
+
+    @Override
+    public User getUserById(int idUser) {
+        Optional<User> userByUsernameOpt = Optional.of(new User());
+
+        String sql = "SELECT id, prenom , nom, email, password, admin FROM membres WHERE id = ? ";
+
+        try {
+            userByUsernameOpt = (Optional.ofNullable(jdbcTemplate.queryForObject(sql,
+                    (ResultSet rs, int rowNum) -> new User(
+                            rs.getLong(1),
+                            rs.getString(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getBoolean(6)),
+                    idUser)));
+
+        } catch (Exception e) {
+            logger.warn("-------------Erreur dal getUserByUsername sql error");
+            e.printStackTrace();
+        }
+
+        // TODO faire remonter l'optional (retourner un Optional<User>)
+        logger.info("-------------getUserByUsername DAO OK " + userByUsernameOpt.get());
+        return userByUsernameOpt.get();
+    }
+
+
     public void insertUser(User user) {
         String sql = "INSERT INTO membres (prenom, nom, email, password, admin) VALUES (?, ?, ?, ?, ?)";
 
@@ -86,6 +115,8 @@ public class UserDAOImpl implements UserDAO {
             e.printStackTrace();
         }
     }
+
+
 
 
 }

@@ -10,4 +10,6 @@ public interface UserDAO {
     List<User> getUsersList();
     User getUserByUsername(String username);
     void insertUser(User user);
+
+    User getUserById(int idUser);
 }
