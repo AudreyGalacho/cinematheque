@@ -42,10 +42,8 @@ public class WebSecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        //(bdd signature encodage)
         return  PasswordEncoderFactories.createDelegatingPasswordEncoder();
         //return new BCryptPasswordEncoder();
-        //return NoOpPasswordEncoder.getInstance();
     }
 
 
