@@ -14,6 +14,8 @@
     <p th:text="'Durée : ' +${film.duree} + ' minutes'"></p>
     <p th:text="'Synopsis : ' + ${film.synopsis}"></p>
     <p th:text="'Acteurs : ' + ${film.acteursString}"></p>
+
+    <p th:text="(${#lists.isEmpty(@avisDAOImpl.getAvisByFilm(film.id))} ? 'Il n\'y a pas d\'avis pour le moment... ' : 'Avis : '+ ${@avisDAOImpl.getAvisByFilm(film.id)})"></p>
     <img th:src="@{'https://picsum.photos/500/500?random=' + ${film.id}}" alt="Film Image">
 </div>
 </body>
