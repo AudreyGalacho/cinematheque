@@ -6,7 +6,7 @@
         <a th:href="@{/ajoutfilm}">Ajouter Film</a>
     </div>
     <div sec:authorize="isAuthenticated()">
-        <form th:action="@{/logout}" method="post">
+        <form class="logout-form" th:action="@{/logout}" method="post">
             <input type="submit" value="Se déconecter"/>
         </form>
     </div>

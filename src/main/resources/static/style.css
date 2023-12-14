@@ -118,10 +118,11 @@ h2 {
 .addfilmform {
     display: flex;
     flex-direction: column;
-    width: 90vw;
+    width: 80%;
     margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5%;
 
 }
 
@@ -131,12 +132,12 @@ h2 {
 .addfilmform textarea {
     width: 100%;
     padding: 2%;
-    margin-bottom: 5%;
+    margin-bottom: 1%;
     border-radius: 5px;
 }
 
 .addfilmform button {
-    margin-top: 5%;
+    margin-top: 1%;
     background-color: #383A3E;
     color: #fff;
     padding: 10px 20px;
@@ -176,7 +177,6 @@ div.form-cols {
 
 .login-container {
     padding: 10%;
-    min-width: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     margin-top: 20%;
@@ -194,4 +194,29 @@ div.form-cols {
     display: flex;
     flex-direction: column;
 }
+.login-container input{
+    width: 100%;
+    padding: 2%;
+    margin-bottom: 1%;
+    border-radius: 5px;
+}
+
+.login-container button {
+    margin-top: 1%;
+    background-color: #383A3E;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+
+}
+.logout-form input[type="submit"] {
+    background-color: #383A3E;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
 
