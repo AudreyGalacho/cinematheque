@@ -105,15 +105,15 @@ public class AvisDAOImpl implements AvisDAO {
         return listAvis;
     }
 
-    public void insertAvis(Avis Avis) {
+    public void insertAvis(Avis avis) {
         String sql = "INSERT INTO avis (note, commentaire, id_membre, id_film) VALUES (?, ?, ?, ?)";
 
         try {
             jdbcTemplate.update(sql,
-                    Avis.getNote(),
-                    Avis.getCommentaire(),
-                    Avis.getUser().getId(),
-                    Avis.getFilm().getId());
+                    avis.getNote(),
+                    avis.getCommentaire(),
+                    avis.getUser().getId(),
+                    avis.getFilm().getId());
             logger.info("-------------insertAvis DAO OK");
         } catch (Exception e) {
             logger.warn("---------------Erreur dal insertAvis sql error");
