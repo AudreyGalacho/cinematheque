@@ -7,4 +7,5 @@ import java.util.List;
 public interface AvisDAO {
     List<Avis> getAvisByFilm(int idFilm);
     List<Avis> getAvisList();
+    void insertAvis(Avis Avis);
 }

@@ -11,19 +11,22 @@ import java.util.List;
 public class AvisServiceImpl implements AvisService{
 
     private AvisDAO avisDAO;
-
     @Autowired
     public AvisServiceImpl(AvisDAO avisDAO) {
         this.avisDAO = avisDAO;
     }
 
+    //****************************** Methodes implementées ********************
     @Override
     public List<Avis> getAvisByFilm(int idFilm) {
         return avisDAO.getAvisByFilm(idFilm);
     }
-
     @Override
     public List<Avis> getAvisList() {
         return avisDAO.getAvisList();
+    }
+    @Override
+    public void insertAvis(Avis avis) {
+        avisDAO.insertAvis(avis);
     }
 }

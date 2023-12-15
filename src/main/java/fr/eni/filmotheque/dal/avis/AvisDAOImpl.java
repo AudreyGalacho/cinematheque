@@ -84,7 +84,6 @@ public class AvisDAOImpl implements AvisDAO {
             logger.warn("-------------Erreur dal getAvisByFilm sql error");
             e.printStackTrace();
         }
-        logger.info("------------DAO AVIS Récupératiojn des avis");
         // TODO faire remonter l'optional (retourner un Optional<Avis>)
         return listAvisByFilm;
     }
@@ -106,23 +105,20 @@ public class AvisDAOImpl implements AvisDAO {
         return listAvis;
     }
 
+    public void insertAvis(Avis Avis) {
+        String sql = "INSERT INTO avis (note, commentaire, id_membre, id_film) VALUES (?, ?, ?, ?)";
+
+        try {
+            jdbcTemplate.update(sql,
+                    Avis.getNote(),
+                    Avis.getCommentaire(),
+                    Avis.getUser().getId(),
+                    Avis.getFilm().getId());
+            logger.info("-------------insertAvis DAO OK");
+        } catch (Exception e) {
+            logger.warn("---------------Erreur dal insertAvis sql error");
+            e.printStackTrace();
+        }
+    }
 }
-
-
-//    public void insertAvis(Avis Avis) {
-//        String sql = "INSERT INTO membres (prenom, nom, email, password, admin) VALUES (?, ?, ?, ?, ?)";
-//
-//        try {
-//            jdbcTemplate.update(sql,
-//                    Avis.getPrenom(),
-//                    Avis.getNom(),
-//                    Avis.getAvisname(),
-//                    Avis.getPassword(),
-//                    Avis.getAdmin());
-//            logger.info("-------------insertAvis DAO OK");
-//        } catch (Exception e) {
-//            logger.warn("---------------Erreur dal insertAvis sql error");
-//            e.printStackTrace();
-//        }
-//    }
 
