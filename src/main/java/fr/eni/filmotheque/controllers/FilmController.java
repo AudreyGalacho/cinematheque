@@ -114,7 +114,7 @@ public class FilmController {
     @PostMapping(path = {"/ajoutfilm"})
     public String addFilm(@Valid @ModelAttribute("film") Film film, BindingResult validFilm){//Gestion de la validation des attributs
         if(validFilm.hasErrors()){
-            logger.warn("Erreur dans la validation des données entrées par l'utilisateur");
+            logger.warn("--------------Erreur dans la validation des données entrées par l'utilisateur");
             return "filmFormAdd";
         }
         filmService.addFilm(film);
