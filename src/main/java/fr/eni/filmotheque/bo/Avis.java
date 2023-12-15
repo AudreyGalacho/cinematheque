@@ -1,5 +1,9 @@
 package fr.eni.filmotheque.bo;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 
@@ -9,8 +13,12 @@ public class Avis {
     private int id;
 
     @Column("note")
+    @Min(0)
+    @Max(5)
+    @NotNull(message = "La note est obligatoire !")
     private int note;
     @Column("commentaire")
+    @NotNull(message = "Merci de mettre une note comprise entre {min} et {max}")
     private String commentaire;
 
     @Column("id_membre")
@@ -25,6 +33,7 @@ public class Avis {
                 "note :" + note +
                 ", commentaire :'" + commentaire + '\'' +
                 user.getPrenom() +
+                film.getId()+
                 '}';
     }
 
