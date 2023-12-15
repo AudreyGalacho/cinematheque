@@ -15,8 +15,23 @@
     <p th:text="'Synopsis : ' + ${film.synopsis}"></p>
     <p th:text="'Acteurs : ' + ${film.acteursString}"></p>
 
-    <p th:text="(${#lists.isEmpty(@avisDAOImpl.getAvisByFilm(film.id))} ? 'Il n\'y a pas d\'avis pour le moment... ' : 'Avis : '+ ${@avisDAOImpl.getAvisByFilm(film.id)})"></p>
-    <img th:src="@{'https://picsum.photos/500/500?random=' + ${film.id}}" alt="Film Image">
+<!--    <p th:text="(${#lists.isEmpty(@avisDAOImpl.getAvisByFilm(film.id))} ?-->
+<!--    'Il n\'y a pas d\'avis pour le moment... '-->
+<!--    : 'Avis : '" +-->
+<!--    th:each="a : ${@avisDAOImpl.getAvisByFilm(film.id)}"-->
+<!--    th:text="${a.note + ' : ' + a.commentaire + ' ' + a.user.prenom}">-->
+<!--    </p>-->
+
+    <p th:if="${#lists.isEmpty(@avisDAOImpl.getAvisByFilm(film.id))}">
+        Il n'y a pas d'avis pour le moment...
+    </p>
+    <p th:unless="${#lists.isEmpty(@avisDAOImpl.getAvisByFilm(film.id))}">
+        Avis :</br>
+        <span th:each="a : ${@avisDAOImpl.getAvisByFilm(film.id)}">
+        <span th:text="${a.note + ' : ' + a.commentaire + ' ' + a.user.prenom}"></span></br>
+    </span>
+    </p>
+    <img alt="Film Image" th:src="@{'https://picsum.photos/500/500?random=' + ${film.id}}">
 </div>
 </body>
 </html>
