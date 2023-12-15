@@ -10,7 +10,7 @@
         </form>
     </div>
     <div class="form-cols" sec:authorize="not isAuthenticated()">
-        <a th:href="@{/login}">Se connecter</a>
+        <a class="login-link" th:href="@{/login}">Se connecter</a>
         <a th:href="@{/register}">Inscription</a>
     </div>
 
