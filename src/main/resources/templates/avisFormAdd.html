@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="fr">
+
+<div th:replace="~{fragments/head :: head}"></div>
+
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<h2>Ajout d'un avis</h2>
+<form th:action="@{/add-avis}" method="post" th:object="${avis}">
+    <label for="note">Note:</label>
+    <div th:if="${#fields.hasErrors('note')}" class="alert alert-danger">
+        <div th:each="erreur: ${#fields.errors('note')}" th:text="${erreur}"></div>
+    </div>
+    <input type="number" id="note" name="note" required th:field="*{note}"/>
+
+    <label for="commentaire">Commentaire:</label>
+    <div th:if="${#fields.hasErrors('commentaire')}" class="alert alert-danger">
+        <div th:each="erreur: ${#fields.errors('commentaire')}" th:text="${erreur}"></div>
+    </div>
+    <input type="commentaire" id="commentaire" name="commentaire" required th:field="*{commentaire}"/>
+
+    <button type="submit">Publier</button>
+</form>
+</body>
+</html>
