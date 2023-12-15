@@ -57,9 +57,25 @@ div.error {
 
 .header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 2% 10%;
+    padding: 2% 5%;
     box-shadow: 0 1px 23px rgba(0, 0, 0, 0.1);
+}
+
+.header .form-cols {
+    align-items: center;
+}
+.header .form-cols a{
+    margin-right: 10px;
+}
+.login-link {
+    padding: 10px;
+    background-color: #383A3E;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
 }
 
 h1 {
@@ -179,7 +195,7 @@ div.form-cols {
     padding: 10%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-top: 20%;
+    margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
     min-width: 30vw;
