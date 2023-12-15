@@ -9,16 +9,14 @@ import java.util.List;
 public class ParticipantServiceImpl implements ParticipantService {
 
     private ParticipantDAO participantDAO;
-
     public ParticipantServiceImpl(ParticipantDAO participantDAO) {
         this.participantDAO = participantDAO;
     }
-
+    //****************************** Methodes implementées ********************
     @Override
     public List<Participant> getListeParticipants() {
         return participantDAO.getParticipantsList();
     }
-
     public Participant findParticipantById(Integer id) {
         return participantDAO.getParticipantById(id);
     }

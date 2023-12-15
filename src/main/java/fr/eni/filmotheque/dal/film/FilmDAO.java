@@ -9,7 +9,6 @@ import fr.eni.filmotheque.bo.Participant;
 public interface FilmDAO {
 	Optional<Film> findFilmById(int id);
 	List<Film> findAllFilms();
-
 	void addFilm(Film film);
 
 }

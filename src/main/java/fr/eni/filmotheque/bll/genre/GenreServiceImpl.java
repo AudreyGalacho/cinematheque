@@ -16,11 +16,10 @@ public class GenreServiceImpl implements GenreService{
         this.genresDAO =genresDAO;
     }
 
-    //Methode implementeé
+    //****************************** Methodes implementées ********************
     public List<Genre> getListeGenres(){
         return genresDAO.getListGenres();
     }
-
     public Genre findGenreById(Integer id) {
         return genresDAO.findGenreById(id);
     }

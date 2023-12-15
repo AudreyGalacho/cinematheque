@@ -9,16 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class FilmServiceImpl implements FilmService{
- /*
- Constructeur FilmServicveImpl et injection
-  */
 	private FilmDAO filmDao;
 	
 	//@Autowired
 	public FilmServiceImpl(FilmDAO filmDao) {
 		this.filmDao = filmDao;
 	}
-/* ************************************************** */
+	//****************************** Methodes implementées ********************
 
 	@Override
 	public Optional<Film> findFilmById(int id) {
