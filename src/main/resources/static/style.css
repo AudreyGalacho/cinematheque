@@ -115,7 +115,7 @@ h2 {
 }
 
 /***********************************FORM***********************************/
-.addfilmform {
+form {
     display: flex;
     flex-direction: column;
     width: 80%;
